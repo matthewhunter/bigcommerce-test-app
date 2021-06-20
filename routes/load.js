@@ -20,7 +20,7 @@ router.get("/", (req, res, next) => {
     // verify request came from BigCommerce
     const data = bigCommerce.verify(req.query["signed_payload"]);
     if (typeof data.user !== "undefined") {
-      res.send("Hello Lexie. The time is " + data.timestamp);
+      res.send("Hello " + data.user + ". The time is " + data.timestamp);
     }
   } catch (err) {}
 });
